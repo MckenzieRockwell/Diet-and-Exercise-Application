@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Diet-and-Exercise-Application.master.cs" Inherits="Diet_and_Exercise_Application.Diet_and_Exercise_Application" %>
+
+<!doctype html>
+<html lang="en">
+    <head runat="server">
+        <title>Diet and Exercise Application</title>
+        <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <form id="form" runat="server">
+            <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+        </form>
+    </body>
+</html>
