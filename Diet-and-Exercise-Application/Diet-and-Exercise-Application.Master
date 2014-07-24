@@ -4,9 +4,8 @@
 <html lang="en">
     <head runat="server">
         <title>Diet and Exercise Tracking Application</title>
-        <link href="css/fonts.css" rel="stylesheet" />
-        <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/all.css" rel="stylesheet" />
+        <link href="/css/lib/bootstrap.min.css" rel="stylesheet" />
+        <link href="/css/all.css" rel="stylesheet" />
         <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     </head>
     <body>
@@ -46,8 +45,8 @@
                 <h1><asp:Literal ID="literalPageHeading" runat="server"></asp:Literal></h1>
                 <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
             </div>
-            <script src="js/lib/jquery.min.js"></script>
-            <script src="js/lib/bootstrap.min.js"></script>
+            <script src="/js/lib/jquery.min.js"></script>
+            <script src="/js/lib/bootstrap.min.js"></script>
         </form>
     </body>
 </html>

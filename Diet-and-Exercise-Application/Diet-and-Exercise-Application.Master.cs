@@ -19,17 +19,22 @@ namespace Diet_and_Exercise_Application
             // Set main heading to page title
             literalPageHeading.Text = Page.Title;
 
-            if (!IsPostBack)
+            // Show different navigation options based on login status
+            if (Page.User.Identity.IsAuthenticated)
             {
-                // Show different navigation options based on login status
-                if (Page.User.Identity.IsAuthenticated)
+                if (Page.Request.Path.Contains("/Guest/"))
                 {
-                    panelGuest.Visible = false;
+                    Response.Redirect("/User/Home.aspx");
                 }
-                else
+                panelGuest.Visible = false;
+            }
+            else
+            {
+                if (Page.Request.Path.Contains("/User/"))
                 {
-                    panelUser.Visible = false;
+                    Response.Redirect("/Guest/Login.aspx");
                 }
+                panelUser.Visible = false;
             }
         }
 
