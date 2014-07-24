@@ -23,17 +23,17 @@
                         <a class="navbar-brand" href="#">Menu</a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse">
-                        <asp:Panel ID="panelIsGuest" runat="server">
+                        <asp:Panel ID="panelGuest" runat="server">
                             <ul class="nav navbar-nav">
-                                <li><a href="Login.aspx">Login</a></li>
-                                <li><a href="Register.aspx">Register</a></li>
+                                <li><a href="/Guest/Login.aspx">Login</a></li>
+                                <li><a href="/Guest/Register.aspx">Register</a></li>
                             </ul>
                         </asp:Panel>
-                        <asp:Panel ID="panelIsUser" runat="server">
+                        <asp:Panel ID="panelUser" runat="server">
                             <ul class="nav navbar-nav">
-                                <li><a href="Home.aspx">Home</a></li>
-                                <li><a href="Graph.aspx">Graphing Tools</a></li>
-                                <li><a href="Account.aspx">Account Management</a></li>
+                                <li><a href="/User/Home.aspx">Home</a></li>
+                                <li><a href="/User/Graph.aspx">Graphing Tools</a></li>
+                                <li><a href="/User/Account.aspx">Account Management</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><asp:LinkButton ID="linkbuttonLogout" runat="server" OnClick="linkbuttonLogout_Click" Text="Logout" /></li>

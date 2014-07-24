@@ -31,22 +31,22 @@ namespace Diet_and_Exercise_Application {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// panelIsGuest control.
+        /// panelGuest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelIsGuest;
+        protected global::System.Web.UI.WebControls.Panel panelGuest;
         
         /// <summary>
-        /// panelIsUser control.
+        /// panelUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelIsUser;
+        protected global::System.Web.UI.WebControls.Panel panelUser;
         
         /// <summary>
         /// linkbuttonLogout control.

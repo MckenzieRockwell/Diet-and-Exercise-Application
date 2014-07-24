@@ -21,24 +21,26 @@ namespace Diet_and_Exercise_Application
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    Response.Redirect("Home.aspx");
+                    // User is logged in
                 }
             }
         }
 
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
-            UserStore<IdentityUser> store = new UserStore<IdentityUser>();
-            UserManager<IdentityUser> manager = new UserManager<IdentityUser>(store);
-            IdentityUser user = manager.Find(textboxUsername.Text, textboxPassword.Text);
+            UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+            IdentityUser identityUser = userManager.Find(textboxUsername.Text, textboxPassword.Text);
 
-            if (user != null)
+            // If the user is found
+            if (identityUser != null)
             {
-                IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                ClaimsIdentity userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                IAuthenticationManager iAuthenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                ClaimsIdentity claimsIdentity = userManager.CreateIdentity(identityUser, DefaultAuthenticationTypes.ApplicationCookie);
 
-                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
-                Response.Redirect("Home.aspx");
+                // Log the user in
+                iAuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, claimsIdentity);
+                Response.Redirect("/User/Home.aspx");
             }
             else
             {

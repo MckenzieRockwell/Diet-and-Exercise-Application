@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <asp:Chart ID="Chart1" runat="server" Width="256" Height="256">
+    <asp:Chart ID="chartMain" runat="server" Width="256" Height="256" AntiAliasing="Graphics" Palette="None">
         <Series>
             <asp:Series Name="Series1" ChartType="Pie" Legend="Legend1">
                 <Points>

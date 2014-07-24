@@ -16,26 +16,29 @@ namespace Diet_and_Exercise_Application
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Set main heading to page title
             literalPageHeading.Text = Page.Title;
 
             if (!IsPostBack)
             {
+                // Show different navigation options based on login status
                 if (Page.User.Identity.IsAuthenticated)
                 {
-                    panelIsGuest.Visible = false;
+                    panelGuest.Visible = false;
                 }
                 else
                 {
-                    panelIsUser.Visible = false;
+                    panelUser.Visible = false;
                 }
             }
         }
 
         protected void linkbuttonLogout_Click(object sender, EventArgs e)
         {
+            // Sign the user out and redirect to login page
             IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("/Guest/Login.aspx");
         }
     }
 }

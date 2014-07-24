@@ -98,40 +98,40 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account.aspx" />
-    <Content Include="AddExercise.aspx" />
-    <Content Include="AddMeal.aspx" />
+    <Content Include="User\Account.aspx" />
+    <Content Include="User\AddExercise.aspx" />
+    <Content Include="User\AddMeal.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\lib\bootstrap.min.css" />
     <Content Include="fonts\glyphicons\glyphicons-halflings-regular.svg" />
-    <Content Include="Graph.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="User\Graph.aspx" />
+    <Content Include="User\Home.aspx" />
     <Content Include="js\lib\bootstrap.min.js" />
     <Content Include="js\lib\jquery.min.js" />
-    <Content Include="Login.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Guest\Login.aspx" />
+    <Content Include="Guest\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.aspx.cs">
+    <Compile Include="User\Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account.aspx.designer.cs">
+    <Compile Include="User\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddExercise.aspx.cs">
+    <Compile Include="User\AddExercise.aspx.cs">
       <DependentUpon>AddExercise.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddExercise.aspx.designer.cs">
+    <Compile Include="User\AddExercise.aspx.designer.cs">
       <DependentUpon>AddExercise.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddMeal.aspx.cs">
+    <Compile Include="User\AddMeal.aspx.cs">
       <DependentUpon>AddMeal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddMeal.aspx.designer.cs">
+    <Compile Include="User\AddMeal.aspx.designer.cs">
       <DependentUpon>AddMeal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Diet-and-Exercise-Application.Master.cs">
@@ -156,33 +156,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DietExerciseAppModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Graph.aspx.cs">
+    <Compile Include="User\Graph.aspx.cs">
       <DependentUpon>Graph.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Graph.aspx.designer.cs">
+    <Compile Include="User\Graph.aspx.designer.cs">
       <DependentUpon>Graph.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="User\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="User\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Guest\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Guest\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="Guest\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="Guest\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
