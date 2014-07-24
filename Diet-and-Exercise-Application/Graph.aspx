@@ -5,4 +5,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <asp:Chart ID="Chart1" runat="server" Width="256" Height="256">
+        <Series>
+            <asp:Series Name="Series1" ChartType="Pie" Legend="Legend1">
+                <Points>
+                    <asp:DataPoint YValues="1" />
+                    <asp:DataPoint YValues="2" />
+                    <asp:DataPoint YValues="3" />
+                    <asp:DataPoint YValues="4" />
+                </Points>
+            </asp:Series>
+        </Series>
+        <Legends>
+            <asp:Legend Name="Legend1"></asp:Legend>
+        </Legends>
+        <ChartAreas>
+            <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+        </ChartAreas>
+    </asp:Chart>
 </asp:Content>

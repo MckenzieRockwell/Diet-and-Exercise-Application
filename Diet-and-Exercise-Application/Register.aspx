@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <asp:Literal ID="literalStatusMessage" runat="server" />
-    <asp:TextBox ID="textboxUsername" runat="server" placeholder="Username" />
-    <asp:TextBox ID="textboxPassword" runat="server" TextMode="Password" placeholder="Password" />
-    <asp:TextBox ID="textboxConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password" />
-    <asp:Button ID="buttonRegister" runat="server" OnClick="buttonRegister_Click" Text="Register" />
+    <asp:TextBox ID="textboxUsername" runat="server" CssClass="form-control" placeholder="Username" />
+    <asp:TextBox ID="textboxPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password" />
+    <asp:TextBox ID="textboxConfirmPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm Password" />
+    <asp:Button ID="buttonRegister" runat="server" CssClass="btn btn-block btn-primary" OnClick="buttonRegister_Click" Text="Register" />
 </asp:Content>
