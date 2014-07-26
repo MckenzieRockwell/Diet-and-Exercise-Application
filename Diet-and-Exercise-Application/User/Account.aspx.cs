@@ -11,7 +11,7 @@ namespace Diet_and_Exercise_Application
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            textboxUsername.Text = User.Identity.Name;
         }
     }
 }

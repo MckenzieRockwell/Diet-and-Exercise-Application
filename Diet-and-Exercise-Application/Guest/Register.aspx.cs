@@ -21,6 +21,12 @@ namespace Diet_and_Exercise_Application
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
+            if (textboxPassword.Text != textboxPasswordConfirm.Text)
+            {
+                literalStatusMessage.Text = "Password confirmation did not match password. ";
+                return;
+            }
+
             UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
             UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
             IdentityUser identityUser = new IdentityUser()

@@ -5,6 +5,6 @@
     <asp:Literal ID="literalStatusMessage" runat="server" />
     <asp:TextBox ID="textboxUsername" runat="server" CssClass="form-control" placeholder="Username" />
     <asp:TextBox ID="textboxPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password" />
-    <asp:TextBox ID="textboxConfirmPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm Password" />
+    <asp:TextBox ID="textboxPasswordConfirm" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm Password" />
     <asp:Button ID="buttonRegister" runat="server" CssClass="btn btn-block btn-primary" OnClick="buttonRegister_Click" Text="Register" />
 </asp:Content>
