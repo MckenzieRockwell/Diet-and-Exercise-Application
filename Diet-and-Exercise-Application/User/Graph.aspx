@@ -5,9 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <asp:Chart ID="Chart1" runat="server" Palette="None">
+    <asp:Chart ID="chart" runat="server" Palette="None">
         <Series>
-            <asp:Series Name="Series1" ChartType="Line" Legend="Legend1">
+            <asp:Series Name="series" ChartType="Line" Legend="legend">
                 <Points>
                     <asp:DataPoint XValue="1" YValues="1" />
                     <asp:DataPoint XValue="2" YValues="2" />
@@ -17,11 +17,10 @@
             </asp:Series>
         </Series>
         <ChartAreas>
-            <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+            <asp:ChartArea Name="area"></asp:ChartArea>
         </ChartAreas>
         <Legends>
-            <asp:Legend Name="Legend1"></asp:Legend>
+            <asp:Legend Name="legend"></asp:Legend>
         </Legends>
     </asp:Chart>
-    <script src="../js/chart.js"></script>
 </asp:Content>

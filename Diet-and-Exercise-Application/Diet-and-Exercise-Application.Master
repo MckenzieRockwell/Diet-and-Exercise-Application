@@ -6,6 +6,8 @@
         <title>Diet and Exercise Tracking Application</title>
         <link href="/css/lib/bootstrap.min.css" rel="stylesheet" />
         <link href="/css/all.css" rel="stylesheet" />
+        <script src="/js/lib/jquery.min.js"></script>
+        <script src="/js/lib/bootstrap.min.js"></script>
         <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     </head>
     <body>
@@ -41,12 +43,12 @@
                     </div>
                 </div>
             </nav>
-            <div class="container">
-                <h1><asp:Literal ID="literalPageHeading" runat="server"></asp:Literal></h1>
-                <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+            <div id="content">
+                <div class="container">
+                    <h1><asp:Literal ID="literalPageHeading" runat="server"></asp:Literal></h1>
+                    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+                </div>
             </div>
-            <script src="/js/lib/jquery.min.js"></script>
-            <script src="/js/lib/bootstrap.min.js"></script>
         </form>
     </body>
 </html>

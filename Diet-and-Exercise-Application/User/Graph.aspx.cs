@@ -13,18 +13,19 @@ namespace Diet_and_Exercise_Application
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Chart palette colors to match Bootstrap United theme
+            // Set chart palette colors to match Bootstrap United theme
             foreach (Control control in Page.Controls)
             {
-                if (control is Chart)
-                ((Chart)control).PaletteCustomColors = new Color[] {
-                    ColorTranslator.FromHtml("#DD4814"), // Primary
-                    ColorTranslator.FromHtml("#38B44A"), // Success
-                    ColorTranslator.FromHtml("#772953"), // Info
-                    ColorTranslator.FromHtml("#EFB73E"), // Warning
-                    ColorTranslator.FromHtml("#DF382C"), // Danger
-                    ColorTranslator.FromHtml("#AEA79F")  // Default
-                };
+                if (control is Chart) {
+                    ((Chart)control).PaletteCustomColors = new Color[] {
+                        ColorTranslator.FromHtml("#DD4814"), // Primary
+                        ColorTranslator.FromHtml("#38B44A"), // Success
+                        ColorTranslator.FromHtml("#772953"), // Info
+                        ColorTranslator.FromHtml("#EFB73E"), // Warning
+                        ColorTranslator.FromHtml("#DF382C"), // Danger
+                        ColorTranslator.FromHtml("#AEA79F")  // Default
+                    };
+                }
             }
         }
     }

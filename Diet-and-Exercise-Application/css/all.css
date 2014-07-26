@@ -1,5 +1,13 @@
 ﻿body {
-    padding-top: 70px;
+    overflow: hidden;
+}
+
+#content {
+    height: calc(100% - 50px);
+    overflow: auto;
+    position: fixed;
+    top: 50px;
+    width: 100%;
 }
 
 .container input {
