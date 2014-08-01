@@ -12,6 +12,11 @@
     </head>
     <body>
         <form id="form" runat="server">
+            <asp:ScriptManager runat="server">
+                <Scripts>
+                    <asp:ScriptReference Name="jquery" />
+                </Scripts>
+            </asp:ScriptManager>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">

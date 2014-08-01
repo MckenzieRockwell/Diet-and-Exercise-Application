@@ -16,6 +16,10 @@ namespace Diet_and_Exercise_Application
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScriptResourceDefinition srd = new ScriptResourceDefinition();
+            srd.Path = "/js/lib/jquery.min.js";
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, srd);
+
             // Set main heading to page title
             literalPageHeading.Text = Page.Title;
 

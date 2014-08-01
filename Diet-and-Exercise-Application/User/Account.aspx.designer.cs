@@ -13,22 +13,22 @@ namespace Diet_and_Exercise_Application {
     public partial class Account {
         
         /// <summary>
-        /// textboxUsername control.
+        /// username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxUsername;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl username;
         
         /// <summary>
-        /// textboxPasswordOld control.
+        /// textboxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxPasswordOld;
+        protected global::System.Web.UI.WebControls.TextBox textboxEmail;
         
         /// <summary>
         /// textboxPasswordNew control.
@@ -47,5 +47,32 @@ namespace Diet_and_Exercise_Application {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textboxPasswordConfirm;
+        
+        /// <summary>
+        /// textboxPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textboxPassword;
+        
+        /// <summary>
+        /// buttonSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttonSave;
+        
+        /// <summary>
+        /// status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl status;
     }
 }

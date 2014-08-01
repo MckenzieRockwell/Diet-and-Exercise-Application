@@ -21,31 +21,42 @@ namespace Diet_and_Exercise_Application
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
-            if (textboxPassword.Text != textboxPasswordConfirm.Text)
-            {
-                literalStatusMessage.Text = "Password confirmation did not match password. ";
-                return;
-            }
-
             UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
             UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
-            IdentityUser identityUser = new IdentityUser()
-            {
-                UserName = textboxUsername.Text
-            };
-            IdentityResult identityResult = userManager.Create(identityUser, textboxPassword.Text);
+            IdentityUser identityUser = userManager.Find(textboxUsername.Text, textboxPassword.Text);
 
-            if (identityResult.Succeeded)
+            // If the user is found
+            if (identityUser != null)
             {
                 IAuthenticationManager iAuthenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 ClaimsIdentity claimsIdentity = userManager.CreateIdentity(identityUser, DefaultAuthenticationTypes.ApplicationCookie);
 
+                // Log the user in
                 iAuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, claimsIdentity);
-                Response.Redirect("Home.aspx");
+                Response.Redirect("/User/Home.aspx");
             }
             else
             {
-                literalStatusMessage.Text = identityResult.Errors.FirstOrDefault();
+                identityUser = new IdentityUser()
+                {
+                    UserName = textboxUsername.Text,
+                    Email = textboxEmail.Text
+                };
+                IdentityResult identityResult = userManager.Create(identityUser, textboxPassword.Text);
+
+                if (identityResult.Succeeded)
+                {
+                    IAuthenticationManager iAuthenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                    ClaimsIdentity claimsIdentity = userManager.CreateIdentity(identityUser, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    iAuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, claimsIdentity);
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    labelDanger.Text = identityResult.Errors.FirstOrDefault();
+                    labelDanger.Visible = true;
+                }
             }
         }
     }

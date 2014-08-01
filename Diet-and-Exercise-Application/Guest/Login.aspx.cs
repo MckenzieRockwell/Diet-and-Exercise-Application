@@ -44,7 +44,8 @@ namespace Diet_and_Exercise_Application
             }
             else
             {
-                literalStatusMessage.Text = "Username or password incorrect. ";
+                labelDanger.Text = "Username or password incorrect. ";
+                labelDanger.Visible = true;
             }
         }
     }

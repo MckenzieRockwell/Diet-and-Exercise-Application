@@ -98,6 +98,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="User\Account.aspx" />
     <Content Include="User\AddExercise.aspx" />
     <Content Include="User\AddMeal.aspx" />
@@ -110,7 +111,9 @@
     <Content Include="js\lib\jquery.min.js" />
     <Content Include="Guest\Login.aspx" />
     <Content Include="Guest\Register.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="User\Account.aspx.cs">
@@ -210,6 +213,8 @@
       <DependentUpon>DietExerciseAppModel.edmx</DependentUpon>
       <LastGenOutput>DietExerciseAppModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\200222045 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\200222045 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,8 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <asp:TextBox ID="textboxUsername" runat="server" CssClass="form-control" disabled="disabled" />
-    <asp:TextBox ID="textboxPasswordOld" runat="server" CssClass="form-control" TextMode="Password" placeholder="Old Password" />
+    <h2 id="username" runat="server" />
+    <asp:TextBox ID="textboxEmail" runat="server" CssClass="form-control" />
     <asp:TextBox ID="textboxPasswordNew" runat="server" CssClass="form-control" TextMode="Password" placeholder="New Password" />
-    <asp:TextBox ID="textboxPasswordConfirm" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm Password" />
+    <asp:TextBox ID="textboxPasswordConfirm" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm New Password" />
+    <hr />
+    <asp:TextBox ID="textboxPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Current Password" />
+    <asp:Button ID="buttonSave" runat="server" CssClass="btn btn-block btn-primary" OnClick="buttonSave_Click" Text="Save Changes" />
+    <div id="status" runat="server" />
+    <asp:RegularExpressionValidator runat="server" ErrorMessage="A valid email address is required. " ControlToValidate="textboxEmail" ValidationExpression=".+@.+\..+" CssClass="alert alert-warning" />
+    <asp:RequiredFieldValidator runat="server" ErrorMessage="Your current password is required to save changes. " ControlToValidate="textboxPassword" CssClass="alert alert-warning" />
+    <asp:CompareValidator runat="server" ErrorMessage="New password confirmation must match new password. " ControlToValidate="textboxPasswordConfirm" ControlToCompare="textboxPasswordNew" CssClass="alert alert-warning" />
 </asp:Content>

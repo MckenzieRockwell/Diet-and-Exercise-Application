@@ -2,6 +2,12 @@
     overflow: hidden;
 }
 
+/* Collapse ASP.NET Field Validators */
+span[style*="hidden"] {
+    display: none;
+}
+
+/* Fix the content area to just below the top navbar */
 #content {
     height: calc(100% - 50px);
     overflow: auto;
@@ -10,7 +16,12 @@
     width: 100%;
 }
 
-.container input {
+/* Normalize some of the margins */
+.alert, .container input {
     display: block;
     margin: .5em 0;
+}
+
+.alert {
+    text-align: center;
 }
