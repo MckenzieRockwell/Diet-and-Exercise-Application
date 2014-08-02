@@ -39,8 +39,7 @@ namespace Diet_and_Exercise_Application
             {
                 identityUser = new IdentityUser()
                 {
-                    UserName = textboxUsername.Text,
-                    Email = textboxEmail.Text
+                    UserName = textboxUsername.Text
                 };
                 IdentityResult identityResult = userManager.Create(identityUser, textboxPassword.Text);
 

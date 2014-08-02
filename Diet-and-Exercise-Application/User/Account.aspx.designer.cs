@@ -31,6 +31,15 @@ namespace Diet_and_Exercise_Application {
         protected global::System.Web.UI.WebControls.TextBox textboxEmail;
         
         /// <summary>
+        /// textboxPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textboxPhone;
+        
+        /// <summary>
         /// textboxPasswordNew control.
         /// </summary>
         /// <remarks>
