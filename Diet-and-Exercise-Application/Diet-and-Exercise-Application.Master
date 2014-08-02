@@ -42,7 +42,7 @@
                                 <li><a href="/User/Account.aspx">Account Management</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><asp:LinkButton ID="linkbuttonLogout" runat="server" OnClick="linkbuttonLogout_Click" Text="Logout" /></li>
+                                <li><asp:LinkButton ID="linkbuttonLogout" runat="server" OnClick="linkbuttonLogout_Click" Text="Logout" ValidationGroup="Logout" /></li>
                             </ul>
                         </asp:Panel>
                     </div>

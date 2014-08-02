@@ -8,17 +8,12 @@
         <EntityContainer Name="NutrientDataModelStoreContainer">
           <EntitySet Name="FD_GROUP" EntityType="NutrientDataModel.Store.FD_GROUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FOOD_DES" EntityType="NutrientDataModel.Store.FOOD_DES" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="FOOTNOTE" EntityType="NutrientDataModel.Store.FOOTNOTE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NUT_DATA" EntityType="NutrientDataModel.Store.NUT_DATA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NUTR_DEF" EntityType="NutrientDataModel.Store.NUTR_DEF" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="WEIGHT" EntityType="NutrientDataModel.Store.WEIGHT" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FOOD_DES$FD_GROUPFOOD_DES" Association="NutrientDataModel.Store.FOOD_DES$FD_GROUPFOOD_DES">
             <End Role="FD_GROUP" EntitySet="FD_GROUP" />
             <End Role="FOOD_DES" EntitySet="FOOD_DES" />
-          </AssociationSet>
-          <AssociationSet Name="FOOTNOTE$FOOD_DESFOOTNOTE" Association="NutrientDataModel.Store.FOOTNOTE$FOOD_DESFOOTNOTE">
-            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
-            <End Role="FOOTNOTE" EntitySet="FOOTNOTE" />
           </AssociationSet>
           <AssociationSet Name="NUT_DATA$NUTR_DEFNUT_DATA" Association="NutrientDataModel.Store.NUT_DATA$NUTR_DEFNUT_DATA">
             <End Role="NUTR_DEF" EntitySet="NUTR_DEF" />
@@ -55,17 +50,6 @@
           <Property Name="Fat_Factor" Type="real" />
           <Property Name="CHO_Factor" Type="real" />
           <Property Name="SSMA_TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="FOOTNOTE">
-          <Key>
-            <PropertyRef Name="SSMA_RowID" />
-          </Key>
-          <Property Name="NDB_No" Type="nvarchar" MaxLength="5" />
-          <Property Name="Footnt_No" Type="nvarchar" MaxLength="4" />
-          <Property Name="Footnot_Typ" Type="nvarchar" MaxLength="1" />
-          <Property Name="Nutr_No" Type="nvarchar" MaxLength="3" />
-          <Property Name="Footnot_Txt" Type="nvarchar" MaxLength="200" />
-          <Property Name="SSMA_RowID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="NUT_DATA">
           <Key>
@@ -129,18 +113,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FOOTNOTE$FOOD_DESFOOTNOTE">
-          <End Role="FOOD_DES" Type="NutrientDataModel.Store.FOOD_DES" Multiplicity="0..1" />
-          <End Role="FOOTNOTE" Type="NutrientDataModel.Store.FOOTNOTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FOOD_DES">
-              <PropertyRef Name="NDB_No" />
-            </Principal>
-            <Dependent Role="FOOTNOTE">
-              <PropertyRef Name="NDB_No" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="NUT_DATA$NUTR_DEFNUT_DATA">
           <End Role="NUTR_DEF" Type="NutrientDataModel.Store.NUTR_DEF" Multiplicity="1" />
           <End Role="NUT_DATA" Type="NutrientDataModel.Store.NUT_DATA" Multiplicity="*" />
@@ -170,20 +142,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NutrientDataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="NutrientDataEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="NutrientDataEntities1" p1:LazyLoadingEnabled="true">
           <EntitySet Name="FD_GROUP" EntityType="NutrientDataModel.FD_GROUP" />
           <EntitySet Name="FOOD_DES" EntityType="NutrientDataModel.FOOD_DES" />
-          <EntitySet Name="FOOTNOTEs" EntityType="NutrientDataModel.FOOTNOTE" />
           <EntitySet Name="NUT_DATA" EntityType="NutrientDataModel.NUT_DATA" />
           <EntitySet Name="NUTR_DEF" EntityType="NutrientDataModel.NUTR_DEF" />
           <EntitySet Name="WEIGHTs" EntityType="NutrientDataModel.WEIGHT" />
           <AssociationSet Name="FOOD_DES_FD_GROUPFOOD_DES" Association="NutrientDataModel.FOOD_DES_FD_GROUPFOOD_DES">
             <End Role="FD_GROUP" EntitySet="FD_GROUP" />
             <End Role="FOOD_DES" EntitySet="FOOD_DES" />
-          </AssociationSet>
-          <AssociationSet Name="FOOTNOTE_FOOD_DESFOOTNOTE" Association="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE">
-            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
-            <End Role="FOOTNOTE" EntitySet="FOOTNOTEs" />
           </AssociationSet>
           <AssociationSet Name="WEIGHT_FOOD_DESWEIGHT" Association="NutrientDataModel.WEIGHT_FOOD_DESWEIGHT">
             <End Role="FOOD_DES" EntitySet="FOOD_DES" />
@@ -222,20 +189,7 @@
           <Property Name="CHO_Factor" Type="Single" />
           <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="FD_GROUP" Relationship="NutrientDataModel.FOOD_DES_FD_GROUPFOOD_DES" FromRole="FOOD_DES" ToRole="FD_GROUP" />
-          <NavigationProperty Name="FOOTNOTEs" Relationship="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE" FromRole="FOOD_DES" ToRole="FOOTNOTE" />
           <NavigationProperty Name="WEIGHTs" Relationship="NutrientDataModel.WEIGHT_FOOD_DESWEIGHT" FromRole="FOOD_DES" ToRole="WEIGHT" />
-        </EntityType>
-        <EntityType Name="FOOTNOTE">
-          <Key>
-            <PropertyRef Name="SSMA_RowID" />
-          </Key>
-          <Property Name="NDB_No" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
-          <Property Name="Footnt_No" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
-          <Property Name="Footnot_Typ" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
-          <Property Name="Nutr_No" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
-          <Property Name="Footnot_Txt" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="SSMA_RowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="FOOD_DES" Relationship="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE" FromRole="FOOTNOTE" ToRole="FOOD_DES" />
         </EntityType>
         <EntityType Name="NUT_DATA">
           <Key>
@@ -302,18 +256,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FOOTNOTE_FOOD_DESFOOTNOTE">
-          <End Role="FOOD_DES" Type="NutrientDataModel.FOOD_DES" Multiplicity="0..1" />
-          <End Role="FOOTNOTE" Type="NutrientDataModel.FOOTNOTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FOOD_DES">
-              <PropertyRef Name="NDB_No" />
-            </Principal>
-            <Dependent Role="FOOTNOTE">
-              <PropertyRef Name="NDB_No" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="WEIGHT_FOOD_DESWEIGHT">
           <End Role="FOOD_DES" Type="NutrientDataModel.FOOD_DES" Multiplicity="1" />
           <End Role="WEIGHT" Type="NutrientDataModel.WEIGHT" Multiplicity="*" />
@@ -343,7 +285,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NutrientDataModelStoreContainer" CdmEntityContainer="NutrientDataEntities">
+        <EntityContainerMapping StorageEntityContainer="NutrientDataModelStoreContainer" CdmEntityContainer="NutrientDataEntities1">
           <EntitySetMapping Name="FD_GROUP">
             <EntityTypeMapping TypeName="NutrientDataModel.FD_GROUP">
               <MappingFragment StoreEntitySet="FD_GROUP">
@@ -370,18 +312,6 @@
                 <ScalarProperty Name="Fat_Factor" ColumnName="Fat_Factor" />
                 <ScalarProperty Name="CHO_Factor" ColumnName="CHO_Factor" />
                 <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FOOTNOTEs">
-            <EntityTypeMapping TypeName="NutrientDataModel.FOOTNOTE">
-              <MappingFragment StoreEntitySet="FOOTNOTE">
-                <ScalarProperty Name="NDB_No" ColumnName="NDB_No" />
-                <ScalarProperty Name="Footnt_No" ColumnName="Footnt_No" />
-                <ScalarProperty Name="Footnot_Typ" ColumnName="Footnot_Typ" />
-                <ScalarProperty Name="Nutr_No" ColumnName="Nutr_No" />
-                <ScalarProperty Name="Footnot_Txt" ColumnName="Footnot_Txt" />
-                <ScalarProperty Name="SSMA_RowID" ColumnName="SSMA_RowID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
