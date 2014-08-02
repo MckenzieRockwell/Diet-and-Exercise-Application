@@ -53,7 +53,7 @@ namespace Diet_and_Exercise_Application
                 {
                     lChangeEmailResult.CssClass += " alert-success";
                     lChangeEmailResult.Text = "Email changed successfully!";
-                    textboxEmail.Attributes.Add("placeholder", "Email (" + identityUser.Email + ")");
+                    textboxEmail.Attributes.Add("placeholder", "Email (" + textboxEmail.Text + ")");
                 }
                 else
                 {
@@ -61,6 +61,7 @@ namespace Diet_and_Exercise_Application
                     lChangeEmailResult.Text = irChangeEmail.Errors.FirstOrDefault();
                 }
                 status.Controls.Add(lChangeEmailResult);
+                textboxEmail.Text = "";
             }
         }
 
@@ -79,7 +80,7 @@ namespace Diet_and_Exercise_Application
                 {
                     lChangePhoneResult.CssClass += " alert-success";
                     lChangePhoneResult.Text = "Phone changed successfully!";
-                    textboxEmail.Attributes.Add("placeholder", "Phone (" + identityUser.Email + ")");
+                    textboxPhone.Attributes.Add("placeholder", "Phone (" + textboxPhone.Text + ")");
                 }
                 else
                 {
@@ -87,6 +88,7 @@ namespace Diet_and_Exercise_Application
                     lChangePhoneResult.Text = irChangePhone.Errors.FirstOrDefault();
                 }
                 status.Controls.Add(lChangePhoneResult);
+                textboxPhone.Text = "";
             }
         }
 
