@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NutrientDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NutrientDataModelStoreContainer">
+          <EntitySet Name="FD_GROUP" EntityType="NutrientDataModel.Store.FD_GROUP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FOOD_DES" EntityType="NutrientDataModel.Store.FOOD_DES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FOOTNOTE" EntityType="NutrientDataModel.Store.FOOTNOTE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NUT_DATA" EntityType="NutrientDataModel.Store.NUT_DATA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NUTR_DEF" EntityType="NutrientDataModel.Store.NUTR_DEF" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WEIGHT" EntityType="NutrientDataModel.Store.WEIGHT" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FOOD_DES$FD_GROUPFOOD_DES" Association="NutrientDataModel.Store.FOOD_DES$FD_GROUPFOOD_DES">
+            <End Role="FD_GROUP" EntitySet="FD_GROUP" />
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+          </AssociationSet>
+          <AssociationSet Name="FOOTNOTE$FOOD_DESFOOTNOTE" Association="NutrientDataModel.Store.FOOTNOTE$FOOD_DESFOOTNOTE">
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+            <End Role="FOOTNOTE" EntitySet="FOOTNOTE" />
+          </AssociationSet>
+          <AssociationSet Name="NUT_DATA$NUTR_DEFNUT_DATA" Association="NutrientDataModel.Store.NUT_DATA$NUTR_DEFNUT_DATA">
+            <End Role="NUTR_DEF" EntitySet="NUTR_DEF" />
+            <End Role="NUT_DATA" EntitySet="NUT_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="WEIGHT$FOOD_DESWEIGHT" Association="NutrientDataModel.Store.WEIGHT$FOOD_DESWEIGHT">
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+            <End Role="WEIGHT" EntitySet="WEIGHT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FD_GROUP">
+          <Key>
+            <PropertyRef Name="FdGrp_CD" />
+          </Key>
+          <Property Name="FdGrp_CD" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="FdGrp_Desc" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="FOOD_DES">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+          </Key>
+          <Property Name="NDB_No" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="FdGrp_Cd" Type="nvarchar" MaxLength="4" />
+          <Property Name="Long_Desc" Type="nvarchar" MaxLength="200" />
+          <Property Name="Shrt_Desc" Type="nvarchar" MaxLength="60" />
+          <Property Name="ComName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ManufacName" Type="nvarchar" MaxLength="65" />
+          <Property Name="Survey" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ref_Desc" Type="nvarchar" MaxLength="135" />
+          <Property Name="Refuse" Type="smallint" />
+          <Property Name="SciName" Type="nvarchar" MaxLength="65" />
+          <Property Name="N_Factor" Type="real" />
+          <Property Name="Pro_Factor" Type="real" />
+          <Property Name="Fat_Factor" Type="real" />
+          <Property Name="CHO_Factor" Type="real" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="FOOTNOTE">
+          <Key>
+            <PropertyRef Name="SSMA_RowID" />
+          </Key>
+          <Property Name="NDB_No" Type="nvarchar" MaxLength="5" />
+          <Property Name="Footnt_No" Type="nvarchar" MaxLength="4" />
+          <Property Name="Footnot_Typ" Type="nvarchar" MaxLength="1" />
+          <Property Name="Nutr_No" Type="nvarchar" MaxLength="3" />
+          <Property Name="Footnot_Txt" Type="nvarchar" MaxLength="200" />
+          <Property Name="SSMA_RowID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="NUT_DATA">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+            <PropertyRef Name="Nutr_No" />
+          </Key>
+          <Property Name="NDB_No" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="Nutr_No" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Nutr_Val" Type="float" />
+          <Property Name="Num_Data_Pts" Type="int" />
+          <Property Name="Std_Error" Type="float" />
+          <Property Name="Src_Cd" Type="nvarchar" MaxLength="2" />
+          <Property Name="Deriv_Cd" Type="nvarchar" MaxLength="4" />
+          <Property Name="Ref_NDB_No" Type="nvarchar" MaxLength="5" />
+          <Property Name="Add_Nutr_Mark" Type="nvarchar" MaxLength="1" />
+          <Property Name="Num_Studies" Type="smallint" />
+          <Property Name="Min" Type="float" />
+          <Property Name="Max" Type="float" />
+          <Property Name="DF" Type="float" />
+          <Property Name="Low_EB" Type="float" />
+          <Property Name="Up_EB" Type="float" />
+          <Property Name="Stat_Cmt" Type="nvarchar" MaxLength="10" />
+          <Property Name="AddMod_Date" Type="nvarchar" MaxLength="10" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="NUTR_DEF">
+          <Key>
+            <PropertyRef Name="Nutr_No" />
+          </Key>
+          <Property Name="Nutr_No" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Units" Type="nvarchar" MaxLength="7" />
+          <Property Name="Tagname" Type="nvarchar" MaxLength="20" />
+          <Property Name="NutrDesc" Type="nvarchar" MaxLength="60" />
+          <Property Name="Num_Dec" Type="nvarchar" MaxLength="1" />
+          <Property Name="SR_Order" Type="real" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="WEIGHT">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="NDB_No" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="Seq" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Msre_Desc" Type="nvarchar" MaxLength="84" />
+          <Property Name="Gm_Wgt" Type="float" />
+          <Property Name="Num_Data_Pts" Type="smallint" />
+          <Property Name="Std_Dev" Type="float" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <Association Name="FOOD_DES$FD_GROUPFOOD_DES">
+          <End Role="FD_GROUP" Type="NutrientDataModel.Store.FD_GROUP" Multiplicity="0..1" />
+          <End Role="FOOD_DES" Type="NutrientDataModel.Store.FOOD_DES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FD_GROUP">
+              <PropertyRef Name="FdGrp_CD" />
+            </Principal>
+            <Dependent Role="FOOD_DES">
+              <PropertyRef Name="FdGrp_Cd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOOTNOTE$FOOD_DESFOOTNOTE">
+          <End Role="FOOD_DES" Type="NutrientDataModel.Store.FOOD_DES" Multiplicity="0..1" />
+          <End Role="FOOTNOTE" Type="NutrientDataModel.Store.FOOTNOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD_DES">
+              <PropertyRef Name="NDB_No" />
+            </Principal>
+            <Dependent Role="FOOTNOTE">
+              <PropertyRef Name="NDB_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NUT_DATA$NUTR_DEFNUT_DATA">
+          <End Role="NUTR_DEF" Type="NutrientDataModel.Store.NUTR_DEF" Multiplicity="1" />
+          <End Role="NUT_DATA" Type="NutrientDataModel.Store.NUT_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NUTR_DEF">
+              <PropertyRef Name="Nutr_No" />
+            </Principal>
+            <Dependent Role="NUT_DATA">
+              <PropertyRef Name="Nutr_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WEIGHT$FOOD_DESWEIGHT">
+          <End Role="FOOD_DES" Type="NutrientDataModel.Store.FOOD_DES" Multiplicity="1" />
+          <End Role="WEIGHT" Type="NutrientDataModel.Store.WEIGHT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD_DES">
+              <PropertyRef Name="NDB_No" />
+            </Principal>
+            <Dependent Role="WEIGHT">
+              <PropertyRef Name="NDB_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NutrientDataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NutrientDataEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="FD_GROUP" EntityType="NutrientDataModel.FD_GROUP" />
+          <EntitySet Name="FOOD_DES" EntityType="NutrientDataModel.FOOD_DES" />
+          <EntitySet Name="FOOTNOTEs" EntityType="NutrientDataModel.FOOTNOTE" />
+          <EntitySet Name="NUT_DATA" EntityType="NutrientDataModel.NUT_DATA" />
+          <EntitySet Name="NUTR_DEF" EntityType="NutrientDataModel.NUTR_DEF" />
+          <EntitySet Name="WEIGHTs" EntityType="NutrientDataModel.WEIGHT" />
+          <AssociationSet Name="FOOD_DES_FD_GROUPFOOD_DES" Association="NutrientDataModel.FOOD_DES_FD_GROUPFOOD_DES">
+            <End Role="FD_GROUP" EntitySet="FD_GROUP" />
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+          </AssociationSet>
+          <AssociationSet Name="FOOTNOTE_FOOD_DESFOOTNOTE" Association="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE">
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+            <End Role="FOOTNOTE" EntitySet="FOOTNOTEs" />
+          </AssociationSet>
+          <AssociationSet Name="WEIGHT_FOOD_DESWEIGHT" Association="NutrientDataModel.WEIGHT_FOOD_DESWEIGHT">
+            <End Role="FOOD_DES" EntitySet="FOOD_DES" />
+            <End Role="WEIGHT" EntitySet="WEIGHTs" />
+          </AssociationSet>
+          <AssociationSet Name="NUT_DATA_NUTR_DEFNUT_DATA" Association="NutrientDataModel.NUT_DATA_NUTR_DEFNUT_DATA">
+            <End Role="NUTR_DEF" EntitySet="NUTR_DEF" />
+            <End Role="NUT_DATA" EntitySet="NUT_DATA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FD_GROUP">
+          <Key>
+            <PropertyRef Name="FdGrp_CD" />
+          </Key>
+          <Property Name="FdGrp_CD" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="FdGrp_Desc" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="FOOD_DES" Relationship="NutrientDataModel.FOOD_DES_FD_GROUPFOOD_DES" FromRole="FD_GROUP" ToRole="FOOD_DES" />
+        </EntityType>
+        <EntityType Name="FOOD_DES">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+          </Key>
+          <Property Name="NDB_No" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="FdGrp_Cd" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Long_Desc" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Shrt_Desc" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="ComName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ManufacName" Type="String" MaxLength="65" Unicode="true" FixedLength="false" />
+          <Property Name="Survey" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Ref_Desc" Type="String" MaxLength="135" Unicode="true" FixedLength="false" />
+          <Property Name="Refuse" Type="Int16" />
+          <Property Name="SciName" Type="String" MaxLength="65" Unicode="true" FixedLength="false" />
+          <Property Name="N_Factor" Type="Single" />
+          <Property Name="Pro_Factor" Type="Single" />
+          <Property Name="Fat_Factor" Type="Single" />
+          <Property Name="CHO_Factor" Type="Single" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="FD_GROUP" Relationship="NutrientDataModel.FOOD_DES_FD_GROUPFOOD_DES" FromRole="FOOD_DES" ToRole="FD_GROUP" />
+          <NavigationProperty Name="FOOTNOTEs" Relationship="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE" FromRole="FOOD_DES" ToRole="FOOTNOTE" />
+          <NavigationProperty Name="WEIGHTs" Relationship="NutrientDataModel.WEIGHT_FOOD_DESWEIGHT" FromRole="FOOD_DES" ToRole="WEIGHT" />
+        </EntityType>
+        <EntityType Name="FOOTNOTE">
+          <Key>
+            <PropertyRef Name="SSMA_RowID" />
+          </Key>
+          <Property Name="NDB_No" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Footnt_No" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Footnot_Typ" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Nutr_No" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Footnot_Txt" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="SSMA_RowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="FOOD_DES" Relationship="NutrientDataModel.FOOTNOTE_FOOD_DESFOOTNOTE" FromRole="FOOTNOTE" ToRole="FOOD_DES" />
+        </EntityType>
+        <EntityType Name="NUT_DATA">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+            <PropertyRef Name="Nutr_No" />
+          </Key>
+          <Property Name="NDB_No" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Nutr_No" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Nutr_Val" Type="Double" />
+          <Property Name="Num_Data_Pts" Type="Int32" />
+          <Property Name="Std_Error" Type="Double" />
+          <Property Name="Src_Cd" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="Deriv_Cd" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Ref_NDB_No" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Add_Nutr_Mark" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Num_Studies" Type="Int16" />
+          <Property Name="Min" Type="Double" />
+          <Property Name="Max" Type="Double" />
+          <Property Name="DF" Type="Double" />
+          <Property Name="Low_EB" Type="Double" />
+          <Property Name="Up_EB" Type="Double" />
+          <Property Name="Stat_Cmt" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="AddMod_Date" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="NUTR_DEF" Relationship="NutrientDataModel.NUT_DATA_NUTR_DEFNUT_DATA" FromRole="NUT_DATA" ToRole="NUTR_DEF" />
+        </EntityType>
+        <EntityType Name="NUTR_DEF">
+          <Key>
+            <PropertyRef Name="Nutr_No" />
+          </Key>
+          <Property Name="Nutr_No" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Units" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
+          <Property Name="Tagname" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="NutrDesc" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="Num_Dec" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="SR_Order" Type="Single" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="NUT_DATA" Relationship="NutrientDataModel.NUT_DATA_NUTR_DEFNUT_DATA" FromRole="NUTR_DEF" ToRole="NUT_DATA" />
+        </EntityType>
+        <EntityType Name="WEIGHT">
+          <Key>
+            <PropertyRef Name="NDB_No" />
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="NDB_No" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Seq" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Msre_Desc" Type="String" MaxLength="84" Unicode="true" FixedLength="false" />
+          <Property Name="Gm_Wgt" Type="Double" />
+          <Property Name="Num_Data_Pts" Type="Int16" />
+          <Property Name="Std_Dev" Type="Double" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="FOOD_DES" Relationship="NutrientDataModel.WEIGHT_FOOD_DESWEIGHT" FromRole="WEIGHT" ToRole="FOOD_DES" />
+        </EntityType>
+        <Association Name="FOOD_DES_FD_GROUPFOOD_DES">
+          <End Role="FD_GROUP" Type="NutrientDataModel.FD_GROUP" Multiplicity="0..1" />
+          <End Role="FOOD_DES" Type="NutrientDataModel.FOOD_DES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FD_GROUP">
+              <PropertyRef Name="FdGrp_CD" />
+            </Principal>
+            <Dependent Role="FOOD_DES">
+              <PropertyRef Name="FdGrp_Cd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOOTNOTE_FOOD_DESFOOTNOTE">
+          <End Role="FOOD_DES" Type="NutrientDataModel.FOOD_DES" Multiplicity="0..1" />
+          <End Role="FOOTNOTE" Type="NutrientDataModel.FOOTNOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD_DES">
+              <PropertyRef Name="NDB_No" />
+            </Principal>
+            <Dependent Role="FOOTNOTE">
+              <PropertyRef Name="NDB_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WEIGHT_FOOD_DESWEIGHT">
+          <End Role="FOOD_DES" Type="NutrientDataModel.FOOD_DES" Multiplicity="1" />
+          <End Role="WEIGHT" Type="NutrientDataModel.WEIGHT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD_DES">
+              <PropertyRef Name="NDB_No" />
+            </Principal>
+            <Dependent Role="WEIGHT">
+              <PropertyRef Name="NDB_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NUT_DATA_NUTR_DEFNUT_DATA">
+          <End Role="NUTR_DEF" Type="NutrientDataModel.NUTR_DEF" Multiplicity="1" />
+          <End Role="NUT_DATA" Type="NutrientDataModel.NUT_DATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NUTR_DEF">
+              <PropertyRef Name="Nutr_No" />
+            </Principal>
+            <Dependent Role="NUT_DATA">
+              <PropertyRef Name="Nutr_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NutrientDataModelStoreContainer" CdmEntityContainer="NutrientDataEntities">
+          <EntitySetMapping Name="FD_GROUP">
+            <EntityTypeMapping TypeName="NutrientDataModel.FD_GROUP">
+              <MappingFragment StoreEntitySet="FD_GROUP">
+                <ScalarProperty Name="FdGrp_CD" ColumnName="FdGrp_CD" />
+                <ScalarProperty Name="FdGrp_Desc" ColumnName="FdGrp_Desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOOD_DES">
+            <EntityTypeMapping TypeName="NutrientDataModel.FOOD_DES">
+              <MappingFragment StoreEntitySet="FOOD_DES">
+                <ScalarProperty Name="NDB_No" ColumnName="NDB_No" />
+                <ScalarProperty Name="FdGrp_Cd" ColumnName="FdGrp_Cd" />
+                <ScalarProperty Name="Long_Desc" ColumnName="Long_Desc" />
+                <ScalarProperty Name="Shrt_Desc" ColumnName="Shrt_Desc" />
+                <ScalarProperty Name="ComName" ColumnName="ComName" />
+                <ScalarProperty Name="ManufacName" ColumnName="ManufacName" />
+                <ScalarProperty Name="Survey" ColumnName="Survey" />
+                <ScalarProperty Name="Ref_Desc" ColumnName="Ref_Desc" />
+                <ScalarProperty Name="Refuse" ColumnName="Refuse" />
+                <ScalarProperty Name="SciName" ColumnName="SciName" />
+                <ScalarProperty Name="N_Factor" ColumnName="N_Factor" />
+                <ScalarProperty Name="Pro_Factor" ColumnName="Pro_Factor" />
+                <ScalarProperty Name="Fat_Factor" ColumnName="Fat_Factor" />
+                <ScalarProperty Name="CHO_Factor" ColumnName="CHO_Factor" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOOTNOTEs">
+            <EntityTypeMapping TypeName="NutrientDataModel.FOOTNOTE">
+              <MappingFragment StoreEntitySet="FOOTNOTE">
+                <ScalarProperty Name="NDB_No" ColumnName="NDB_No" />
+                <ScalarProperty Name="Footnt_No" ColumnName="Footnt_No" />
+                <ScalarProperty Name="Footnot_Typ" ColumnName="Footnot_Typ" />
+                <ScalarProperty Name="Nutr_No" ColumnName="Nutr_No" />
+                <ScalarProperty Name="Footnot_Txt" ColumnName="Footnot_Txt" />
+                <ScalarProperty Name="SSMA_RowID" ColumnName="SSMA_RowID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NUT_DATA">
+            <EntityTypeMapping TypeName="NutrientDataModel.NUT_DATA">
+              <MappingFragment StoreEntitySet="NUT_DATA">
+                <ScalarProperty Name="NDB_No" ColumnName="NDB_No" />
+                <ScalarProperty Name="Nutr_No" ColumnName="Nutr_No" />
+                <ScalarProperty Name="Nutr_Val" ColumnName="Nutr_Val" />
+                <ScalarProperty Name="Num_Data_Pts" ColumnName="Num_Data_Pts" />
+                <ScalarProperty Name="Std_Error" ColumnName="Std_Error" />
+                <ScalarProperty Name="Src_Cd" ColumnName="Src_Cd" />
+                <ScalarProperty Name="Deriv_Cd" ColumnName="Deriv_Cd" />
+                <ScalarProperty Name="Ref_NDB_No" ColumnName="Ref_NDB_No" />
+                <ScalarProperty Name="Add_Nutr_Mark" ColumnName="Add_Nutr_Mark" />
+                <ScalarProperty Name="Num_Studies" ColumnName="Num_Studies" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="DF" ColumnName="DF" />
+                <ScalarProperty Name="Low_EB" ColumnName="Low_EB" />
+                <ScalarProperty Name="Up_EB" ColumnName="Up_EB" />
+                <ScalarProperty Name="Stat_Cmt" ColumnName="Stat_Cmt" />
+                <ScalarProperty Name="AddMod_Date" ColumnName="AddMod_Date" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NUTR_DEF">
+            <EntityTypeMapping TypeName="NutrientDataModel.NUTR_DEF">
+              <MappingFragment StoreEntitySet="NUTR_DEF">
+                <ScalarProperty Name="Nutr_No" ColumnName="Nutr_No" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Tagname" ColumnName="Tagname" />
+                <ScalarProperty Name="NutrDesc" ColumnName="NutrDesc" />
+                <ScalarProperty Name="Num_Dec" ColumnName="Num_Dec" />
+                <ScalarProperty Name="SR_Order" ColumnName="SR_Order" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WEIGHTs">
+            <EntityTypeMapping TypeName="NutrientDataModel.WEIGHT">
+              <MappingFragment StoreEntitySet="WEIGHT">
+                <ScalarProperty Name="NDB_No" ColumnName="NDB_No" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Msre_Desc" ColumnName="Msre_Desc" />
+                <ScalarProperty Name="Gm_Wgt" ColumnName="Gm_Wgt" />
+                <ScalarProperty Name="Num_Data_Pts" ColumnName="Num_Data_Pts" />
+                <ScalarProperty Name="Std_Dev" ColumnName="Std_Dev" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

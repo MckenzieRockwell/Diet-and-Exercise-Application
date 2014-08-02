@@ -111,11 +111,17 @@
     <Content Include="js\lib\jquery.min.js" />
     <Content Include="Guest\Login.aspx" />
     <Content Include="Guest\Register.aspx" />
+    <Content Include="User\MealLogPanel.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="User\Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,6 +195,13 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="User\MealLogPanel.aspx.cs">
+      <DependentUpon>MealLogPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MealLogPanel.aspx.designer.cs">
+      <DependentUpon>MealLogPanel.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons\glyphicons-halflings-regular.eot" />
@@ -212,6 +225,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DietExerciseAppModel.edmx</DependentUpon>
       <LastGenOutput>DietExerciseAppModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\200222045 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\200222045 - Web Deploy.pubxml" />

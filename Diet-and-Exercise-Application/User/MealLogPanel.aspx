@@ -1,19 +1,27 @@
-﻿<%@ Page Title="Add a Meal" Language="C#" MasterPageFile="~/Diet-and-Exercise-Application.Master" AutoEventWireup="true" CodeBehind="AddMeal.aspx.cs" Inherits="Diet_and_Exercise_Application.AddMeal" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-        <div>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MealLogPanel.aspx.cs" Inherits="DeitAndExerciseApp.MealLogPanel" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="MealLogPanel.css" type="text/css" rel="Stylesheet" />
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
         <div id="MealEntrycontroldiv" class="outerbox">
-            <div id ="selectmealcontrolbox"> 
+            <div id ="selectmealcontrolbox">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
                     <ContentTemplate>
 
-                        <asp:Label ID="Label1" runat="server" Text="Select a meal"/>
+                        <asp:Label runat="server" Text="Select a meal"/>
                         <asp:DropDownList ID="savedMealSelect" runat="server"/>
 
-                        <asp:Label ID="Label2" runat="server" Text="log meal"></asp:Label>
+                        <asp:Label runat="server" Text="log meal"></asp:Label>
                         <asp:Button ID="logmealbtn_dd" runat="server" Text="log meal" />
 
                     </ContentTemplate>
@@ -43,7 +51,7 @@
                     <div id="Div1" class="mealComponenet">
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
-                            <asp:Label ID="Label3" runat="server" Text="select a food group"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text="select a food group"></asp:Label>
                             <asp:DropDownList ID="DropDownList1" runat="server"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -102,7 +110,7 @@
                     Meal nutrient summary
                     <asp:Label ID="CalorieSumLabel" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="CarbSumlabel" runat="server" Text="Label"></asp:Label>
-                    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
 
                 </div>
 
@@ -115,4 +123,6 @@
             
         </div>
     </div>
-</asp:Content>
+    </form>
+</body>
+</html>
