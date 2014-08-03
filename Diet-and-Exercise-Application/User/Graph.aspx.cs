@@ -26,6 +26,16 @@ namespace Diet_and_Exercise_Application
                         ColorTranslator.FromHtml("#AEA79F")  // Default
                     };
                 }
+
+                Series series = chart.Series.Add("Calories");
+
+                series.ChartType = SeriesChartType.Line;
+
+                series.Points.Add(1);
+                series.Points.Add(3);
+                series.Points.Add(2);
+                series.Points.Add(7);
+                series.Points.Add(5);
             }
         }
     }

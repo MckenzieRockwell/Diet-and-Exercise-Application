@@ -5,19 +5,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <asp:UpdatePanel ID="updateChart" runat="server">
-        <ContentTemplate>
-            <asp:Chart ID="chart" runat="server" Palette="None">
-                <ChartAreas>
-                    <asp:ChartArea Name="area"></asp:ChartArea>
-                </ChartAreas>
-                <Legends>
-                    <asp:Legend Name="legend"></asp:Legend>
-                </Legends>
-            </asp:Chart>
-        </ContentTemplate>
-        <Triggers>
-
-        </Triggers>
-    </asp:UpdatePanel>
+    <asp:Chart ID="chart" runat="server" Palette="None">
+        <ChartAreas>
+            <asp:ChartArea Name="area"></asp:ChartArea>
+        </ChartAreas>
+        <Legends>
+            <asp:Legend Name="legend"></asp:Legend>
+        </Legends>
+    </asp:Chart>
 </asp:Content>
