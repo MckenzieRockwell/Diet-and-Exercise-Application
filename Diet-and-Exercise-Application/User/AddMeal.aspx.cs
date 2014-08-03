@@ -46,7 +46,7 @@ namespace Diet_and_Exercise_Application
 
         protected void populateFoodGroup(DropDownList myControl)
         {
-            using (NutrientDataEntities1 ObjEnt = new NutrientDataEntities1())
+            using (NutrientDataEntities ObjEnt = new NutrientDataEntities())
             {
                 var data = from FD_GROUP in ObjEnt.FD_GROUP
                            select new
